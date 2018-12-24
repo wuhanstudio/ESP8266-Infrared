@@ -1,7 +1,7 @@
 
 var power = 1;
 var mode = 4;   // 0 Auto 1 Fan 2 Dehumid 3 Dry 4 Heat
-var temperature = 22;
+var temperature = 25;
 var speed = 1;
 var dir = 2;
 
@@ -147,74 +147,89 @@ function updateUI() {
     // alert(str);
 
     // Power on/off
-    if(getPower() == 1) $('.status').show();
-    else $('.status').hide();
+    if(getPower() == 1){
+        document.getElementById('mode').style.visibility="visible";
+        document.getElementById('med').style.visibility="visible";
+        document.getElementById('bot').style.visibility="visible";        
+    } 
+    else {
+        document.getElementById('mode').style.visibility ="hidden";
+        document.getElementById('med').style.visibility ="hidden";
+        document.getElementById('bot').style.visibility ="hidden";
+    }
+
     // Chane Mode
     // 0 Auto, 1 Cool, 2 Dry, 3 Fan, 4 Heat
-    $("#cool").addClass('text-muted');
-    $("#dry").addClass('text-muted');
-    $("#fan").addClass('text-muted');
-    $("#heat").addClass('text-muted');
-    if(getMode() == 1) $("#cool").removeClass('text-muted');
-    if(getMode() == 2) $("#dry").removeClass('text-muted');
-    if(getMode() == 3) $("#fan").removeClass('text-muted');
-    if(getMode() == 4) $("#heat").removeClass('text-muted');
+    document.getElementById('cool').classList.add('text-muted');
+    document.getElementById('dry').classList.add('text-muted');
+    document.getElementById('fan').classList.add('text-muted');
+    document.getElementById('heat').classList.add('text-muted');
+
+    if(getMode() == 1) document.getElementById('cool').classList.remove('text-muted');
+    if(getMode() == 2) document.getElementById('dry').classList.remove('text-muted');
+    if(getMode() == 3) document.getElementById('fan').classList.remove('text-muted');
+    if(getMode() == 4) document.getElementById('heat').classList.remove('text-muted');
     
     //Change Temperature
     if(mode == 0)
     {
-        $("#temp").text('Auto');
-        $("#celcius").hide();
+        document.getElementById('temp').innerHTML = 'Auto';
+        document.getElementById('celcius').style.display="none";
     }
     else
     {
-        $("#temp").text(getTemp());
-        $("#celcius").show();
+        document.getElementById('temp').innerHTML = getTemp();
+        document.getElementById('celcius').style.display="inline";
     }
 
     // Change Speed
     if(getSpeed() == 0)
     {
-        $('#speed').text('Auto')
+        document.getElementById('speed').innerHTML = 'Auto';
     }
     else if(getSpeed() == 1)
     {
-        $('#speed').text('Low')
+
+        document.getElementById('speed').innerHTML = 'Low';
     }
     else if(getSpeed() == 2)
     {
-        $('#speed').text('Medium')
+        document.getElementById('speed').innerHTML = 'Medium';
     }
     else if(getSpeed() == 3)
     {
-        $('#speed').text('High')
+        document.getElementById('speed').innerHTML = 'High';
     }
     else
     {
-        $('#speed').text('Auto')
+        document.getElementById('speed').innerHTML = 'Auto';
     }
 
     // Change Direction
     if(getDir() == 0)
     {
-        $('#dir').text('Swing')
+        document.getElementById('dir').innerHTML = 'Swing';
     }
     else if(getDir() == 1)
     {
-        $('#dir').text('↗')
+        document.getElementById('dir').innerHTML = '↗';
     }
     else if(getDir() == 2)
     {
-        $('#dir').text('→')
+        document.getElementById('dir').innerHTML = '→';
     }
     else if(getDir() == 3)
     {
-        $('#dir').text('↘')
+        document.getElementById('dir').innerHTML = '↘';
     }
     else
     {
-        $('#dir').text('Swing')
+        document.getElementById('dir').innerHTML = 'Swing';
     }
 
     send();
+}
+
+window.onload = function() {
+    updateUI();
 }
