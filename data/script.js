@@ -175,29 +175,29 @@ function updateUI() {
     // Change Speed
     if(getSpeed() == 0)
     {
-        $('#speed').text('自动')
+        $('#speed').text('Auto')
     }
     else if(getSpeed() == 1)
     {
-        $('#speed').text('低')
+        $('#speed').text('Low')
     }
     else if(getSpeed() == 2)
     {
-        $('#speed').text('中')
+        $('#speed').text('Medium')
     }
     else if(getSpeed() == 3)
     {
-        $('#speed').text('高')
+        $('#speed').text('High')
     }
     else
     {
-        $('#speed').text('自动')
+        $('#speed').text('Auto')
     }
 
     // Change Direction
     if(getDir() == 0)
     {
-        $('#dir').text('扫风')
+        $('#dir').text('Swing')
     }
     else if(getDir() == 1)
     {
@@ -213,7 +213,7 @@ function updateUI() {
     }
     else
     {
-        $('#dir').text('扫风')
+        $('#dir').text('Swing')
     }
 
     send();

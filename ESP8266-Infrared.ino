@@ -10,9 +10,9 @@
 
 #include "webhandler.h"
 
-const char* sta_ssid = "Wuhan-Studio";
-const char* sta_password = "23218114";
-const char* ap_ssid = "Room-114-Gree";
+const char* sta_ssid = "********";
+const char* sta_password = "********";
+const char* ap_ssid = "Gree-AC;
 
 const byte DNS_PORT = 53;
 DNSServer dnsServer;
