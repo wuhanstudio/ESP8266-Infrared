@@ -1,12 +1,75 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>ESP8266 Demo</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Gree Remote Control</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<h1>Hello from ESP8266, you can send NEC encoded IR
-	signals from here!</h1>
-	<p><a href="ir?code=16769055">Send 0xFFE01F</a></p>
-	<p><a href="ir?code=16429347">Send 0xFAB123</a></p>
-	<p><a href="ir?code=16771222">Send 0xFFE896</a></p>
+	<section id="main">
+		<div class="container">
+			<div class="monitor">
+				<div class="row text-center text-white status" id="mode">
+					<div class="col-3 text-muted" id="cool">Cool</div>
+					<div class="col-3 text-muted" id="dry">Dry</div>
+					<div class="col-3 text-muted" id="fan">Fan</div>
+					<div class="col-3 text-muted" id="heat">Heat</div>
+				</div>
+				<div class="row text-center text-white status" id="med">
+					<div class="col-12">
+						<span class="display-1" id="temp">25</span>
+						<span class="display-1" id="celcius" visible="true"> ℃</span>
+					</div>
+				</div>
+				<div class="row text-center text-white status" id="bot">
+					<div class="col-6" id="speed">Low</div>
+					<div class="col-6"><span id="dir">&#8594</span></div>
+				</div>
+			</div>
+			<div class="row mt-3">
+					<div class="col-6">
+						<button class="btn btn-primary btn-block" onclick="togglePower()">Power</button>
+					</div>
+					<div class="col-6">
+						<button class="btn btn-primary btn-block" onclick="toggleMode()">Mode</button>
+					</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-4">
+					<button class="btn btn-primary btn-block" onclick="toggleSpeed()">Speed</button>
+				</div>
+				<div class="col-4">
+					<button class="btn btn-primary btn-block" onclick="toggleDir()">Direction</button>
+				</div>
+				<div class="col-4">
+					<button class="btn btn-primary btn-block" onclick="swing()">Swing</button>
+				</div>
+			</div>
+			<div class="row mt-3">
+			<div class="col-4">
+				<button class="btn btn-primary btn-block" onclick="decTemp()">-</button>
+			</div>
+			<div class="col-4">
+				<h3 class="text-muted text-center">Temp</h3>
+			</div>
+			<div class="col-4">
+				<button class="btn btn-primary btn-block" onclick="incTemp()" >+</button>
+			</div>
+			</div>
+			<div class="row mt-3">
+				<div class="col-6">
+					<button class="btn btn-primary btn-block" onclick="send()">Send</button>
+				</div>
+				<div class="col-6">
+					<button class="btn btn-primary btn-block" onclick="combo()">Combo</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>	
+	<script src="script.js"></script>
 </body>
 </html>
