@@ -54,4 +54,4 @@ You may reference:
 
 * Author：Wu Han
 * Homepage：http://wuhanstudio.cc
-* Email：wuhanstudio@hust.edu.cn
+* Contact：https://github.com/wuhanstudio/ESP8266-Infrared/issues
